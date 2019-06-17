@@ -53,7 +53,6 @@ show valid_pred: update Predictions: MinMaxInverseTxf[`NominalPrice;closing_pric
 // Join the dataset of train and valid_pred
 show combined_dataset: train uj valid;
 
-
 // Get subset data to do 5 working days look-forward predictions
 subset_data: 0! neg[roll_int] # scaled_dataset;
 
