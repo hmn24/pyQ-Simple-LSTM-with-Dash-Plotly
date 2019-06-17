@@ -52,3 +52,18 @@ show valid_pred: update Predictions: MinMaxInverseTxf[`NominalPrice;closing_pric
 
 // Join the dataset of train and valid_pred
 show combined_dataset: train uj valid;
+
+
+// Get subset data to do 5 working days look-forward predictions
+subset_data: 0! neg[roll_int] # scaled_dataset;
+
+// Generate the correct shape for pyQ for the lookforward variable
+lookforward: (0N;roll_int) # exec NominalPrice from subset_data;
+
+// Get 5 days lookforward predictions
+-1 "\nNext 5 Days Prediction:\n";
+show lookforward_pred: MinMaxInverseTxf[`NominalPrice; pyq_predictLSTMModel enlist lookforward];
+
+// One can play around with different lookforward days predictions such as
+/ pyq_predictLSTMModel (lookforward; 14)
+
