@@ -14,7 +14,8 @@ valid: select from dataset where i >= division;
 / Define a dictionary to store the Min-Max value for inverse-transform
 MinMaxInverseTxf: ()!();
 MinMaxTxf: ()!()
-MinMaxScaler: {[data;id] mi: min data; ma: max data;
+MinMaxScaler: {[data;id] 
+    mi: min data; ma: max data;
     @[`MinMaxInverseTxf; id; :; {x + z * y - x}[mi;ma;]]; 
     @[`MinMaxTxf; id; :; {(z - x) % y - x}[mi;ma;]]; 
     (data - mi) % ma - mi
