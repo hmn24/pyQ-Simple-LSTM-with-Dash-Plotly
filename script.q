@@ -51,7 +51,7 @@ closing_price: pyq_createLSTMModel (x_train; y_train; x_valid; 2);
 show valid_pred: update Predictions: MinMaxInverseTxf[`NominalPrice;closing_price] from valid;
 
 // Join the dataset of train and valid_pred
-show combined_dataset: train uj valid;
+show -5# combined_dataset: train uj valid;
 
 // Get subset data to do 5 working days look-forward predictions
 subset_data: 0! neg[roll_int] # scaled_dataset;
