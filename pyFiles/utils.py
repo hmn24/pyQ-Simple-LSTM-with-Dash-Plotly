@@ -47,11 +47,11 @@ def pyq_5thCheck(dt):
     print(date(dt))
 
 # Specify api_key within quandl to ensure proper access
-quandl.ApiConfig.api_key = 'ymqPSwzsysCvze9UBYcm'
+quandl.ApiConfig.api_key = ''
 
 @define_in_q
 def pyq_getStockData(stockquote, diff=7, enddt=datetime.today().date()):
-    print('Pulling data from quandl')
+    print('*** Pulling data from quandl ***')
     # Connect to quandl to get stock data 
     tab = quandl.get(str(stockquote), start_date=enddt - timedelta(days=int(diff)), end_date=enddt).reset_index()
     return tab.to_dict('series')
