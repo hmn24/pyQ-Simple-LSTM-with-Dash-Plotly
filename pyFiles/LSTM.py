@@ -1,25 +1,17 @@
 import pyFiles.utils as utils
-import quandl
-from datetime import datetime, timedelta
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, LSTM
 import pandas as pd, numpy as np
 
-# Specify api_key within quandl to ensure proper access
-quandl.ApiConfig.api_key = ''
-
-@utils.define_in_q
-def pyq_getStockData(stockquote, diff=7, enddt=datetime.today().date()):
-    # Connect to quandl to get stock data 
-    tab = quandl.get(str(stockquote), start_date=enddt - timedelta(days=int(diff)), end_date=enddt).reset_index()
-    return tab.to_dict('series')
-
-@utils.define_in_q
-def pyq_getShape(matrix):
-    print(np.array(matrix).shape)
-
 # Define model outside function so it lives as a variable
 LSTMmodel = Sequential()
+
+# For the redefinition/resetting of LSTMmodel created
+@utils.define_in_q
+def pyq_redefineLSTMModel():
+    print('\n*** Defining/Resetting LSTM Model ***\n')
+    global LSTMmodel
+    LSTMmodel = Sequential()
 
 # Not exposed to q
 def appendLSTMModel(train_set):
