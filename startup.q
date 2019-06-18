@@ -11,5 +11,5 @@ p)import pyFiles.LSTM
 // Define the console size
 system "c 10 200";
 
-// Load the script.q
-system "l script.q"
+// Load the script.q (Can be uncommented out if required to run the script)
+/ system "l script.q";
