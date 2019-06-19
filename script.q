@@ -33,7 +33,7 @@ $[not type key cacheFile;
 dataset: 1! `Date`NominalPrice xcol (`Date, `$"Nominal Price") # tab;
 
 // Split into training and testing sets - 80% division mark
-division: floor ceiling 0.8* ceiling count dataset;
+division: ceiling 0.8* count dataset;
 train: select from dataset where i < division;
 valid: select from dataset where i >= division;
 
