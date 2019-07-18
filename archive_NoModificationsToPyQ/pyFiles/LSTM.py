@@ -8,7 +8,7 @@ LSTMmodel = Sequential()
 
 # For the redefinition/resetting of LSTMmodel created
 @utils.define_in_q
-def redefineLSTMModel():
+def pyq_redefineLSTMModel():
     print('\n*** Defining/Resetting LSTM Model ***\n')
     global LSTMmodel
     LSTMmodel = Sequential()
@@ -22,7 +22,7 @@ def appendLSTMModel(train_set):
     return 0
 
 @utils.define_in_q
-def createLSTMModel(x_train, y_train, x_valid, epo=1):
+def pyq_createLSTMModel(x_train, y_train, x_valid, epo=1):
     # Create numpy arrays and resize it for training dataset
     np_xtrain = np.array(x_train)
     np_xtrain_rs = np.reshape(np_xtrain, (np_xtrain.shape[0], np_xtrain.shape[1], 1))
@@ -40,7 +40,7 @@ def createLSTMModel(x_train, y_train, x_valid, epo=1):
     return closing_price
 
 @utils.define_in_q
-def predictLSTMModel(inputs, lookforward=5):
+def pyq_predictLSTMModel(inputs, lookforward=5):
     np_inputs = np.array(inputs)
     reshape_tuple = (np_inputs.shape[0], np_inputs.shape[1], 1)
     rolling_intervals = np_inputs.shape[1]

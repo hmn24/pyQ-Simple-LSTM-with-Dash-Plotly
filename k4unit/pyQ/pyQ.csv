@@ -1,0 +1,6 @@
+action,ms,bytes,lang,code,repeat,comment
+true,0,0,,.z.d =.py.firstCheck[.z.d],1,
+true,0,0,,3 = .py.secondCheck (1;2),1,
+true,0,0,,not .py.thirdCheck[],1,
+true,0,0,,null .py.fourthCheck[],1,
+true,0,0,,2019.04.20 = .py.fifthCheck[enlist "." vs string 2019.04.20],1,

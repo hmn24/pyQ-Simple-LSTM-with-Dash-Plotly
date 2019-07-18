@@ -10,7 +10,7 @@
  };
 
 // Generate function that can generate the N amount of working days
-.utils.genWorkingDays: {dt: $[.py.checkHKWorkingDays enlist "." vs string x 1; x 1; ()]; @/[x; 0 1; (,[;dt];1+)]};
+.utils.genWorkingDays: {dt: $[pyq_checkHKWorkingDays enlist "." vs string x 1; x 1; ()]; @/[x; 0 1; (,[;dt];1+)]};
 
 // Define function to get rolling intervals for LSTM Model Predictions
 .utils.rollIntervals: {x #' (1 rotate)\[count[y] - x + 1; y]};
@@ -25,7 +25,7 @@ cacheFile: .Q.dd[hsym `:cache; exec `$ "_" sv (stockSymbol except "/"; string vi
 // If cacheFile exists, read the q binary files from there, else utilise the pyq Function to pull it from quandl
 // Construct the sample data for the running of LSTM Model
 $[not type key cacheFile;
-    [tab: `Date xasc @[flip .py.getStockData params[`stockSymbol`viewPeriod]; `Date; `date$]; cacheFile set tab];
+    [tab: `Date xasc @[flip pyq_getStockData params[`stockSymbol`viewPeriod]; `Date; `date$]; cacheFile set tab];
     [-1 "\n*** Reading from cacheFile ***\n"; tab: get cacheFile]
  ];
 
@@ -55,10 +55,10 @@ nomPx_valid: exec NominalPrice from scaled_inputs;
 x_valid: .utils.rollIntervals[roll_int; nomPx_valid];
 
 // Define the LSTM Model
-.py.redefineLSTMModel[];
+pyq_redefineLSTMModel[];
 
 // Run LSTM Model to get the closing_price predicted
-closing_price: .py.createLSTMModel (x_train; y_train; x_valid; params `epochs);
+closing_price: pyq_createLSTMModel (x_train; y_train; x_valid; params `epochs);
 
 // Create side-by-side predictions of Predictions beside NominalPrice of Validation Dataset
 valid_pred: update Predictions: .utils.MinMaxInverseTxf[`NominalPrice;closing_price] from valid;
@@ -79,8 +79,8 @@ lookforward: (0N;roll_int) # exec NominalPrice from subset_data;
 pred_dts: first .utils.genWorkingDays/[params[`predLookFwd] > count first @; ((); last[subset_data][`Date] + 1)];
 
 // Get the list of price predictions based off the preLookFwd parameter
-pred_px: .utils.MinMaxInverseTxf[`NominalPrice; .py.predictLSTMModel (lookforward; params `predLookFwd)];
-/ One can play around with different lookforward predictions such as >> MinMaxInverseTxf[`NominalPrice; .py.predictLSTMModel (lookforward; 14)]
+pred_px: .utils.MinMaxInverseTxf[`NominalPrice; pyq_predictLSTMModel (lookforward; params `predLookFwd)];
+/ One can play around with different lookforward predictions such as >> MinMaxInverseTxf[`NominalPrice; pyq_predictLSTMModel (lookforward; 14)]
 
 // Generate the predictions table 
 -1 raze "\n *** Lookahead Predictions for the next ", string[params `predLookFwd], " working days: ***\n";

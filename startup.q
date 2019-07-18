@@ -1,15 +1,35 @@
-// To load all the various python scripts
+// -- Python Scripts Section -- 
 p)import pyFiles.utils
 p)import pyFiles.LSTM
 
 // Inner function to be defined for projection purposes, to be corrected for string types
-.py.innerProjection: {x (), $[not[type y] & -10h = type first y; enlist y; y]};
+.utils.innerProjection: {x (), $[not[type y] & -10h = type first y; enlist y; y]};
 
 // Define pyq functions with a projection, so no enlist is required for monadic functions
-{x set .py.innerProjection value x} each system["f"] where system["f"] like "pyq_*";
+{a set .utils.innerProjection value a: .Q.dd[`.py;x]} each system "f .py";
 
 // Define the console size
 system "c 10 200";
 
-// Load the script.q (Can be uncommented out if required to run the script)
-/ system "l script.q";
+
+// -- Unit Test Section --
+// Define the unitTestPath for the loading of pyQ script
+.util.unitTestPath: .Q.dd[`:.; key[`:.] where key[`:.] like "k4unit"];
+
+// Define the test script to ensure that pyq functions defined are all working properly 
+\l k4unit/k4unit.q
+
+// Load the corresponding pyQ testing section
+KUltd .Q.dd[.util.unitTestPath;`pyQ];
+
+// Run the unit test and save it down for restrospective viewing
+-1 "\n*** Running Unit Tests: ***\n";
+KUrt[];
+-1 "\n*** Completed and Saving Unit Tests: ***";
+KUstr[];
+-1 $[exec all ok from KUTR; "\n*** Unit Tests Passed ***\n"; "\n*** Unit Tests Failed ***\n"];
+
+// -- Machine Learning (LSTM) Section --
+\l script.q
+
+
