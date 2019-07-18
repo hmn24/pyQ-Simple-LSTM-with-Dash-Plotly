@@ -9,7 +9,9 @@ Using of quandl data &amp; LSTM Model within pyQ to generate sample predictions
 
 3) q startup.q
 
-4) If not using the archive version, the anaconda's pyq library's __init__.py would need to be replaced by this repo's __init__.py file for the script to work correctly, i.e. define within the .py namespace
+4) If not using the archive version, the anaconda's pyq library's __init__.py 
+would need to be replaced by this repo's __init__.py file for the script 
+to work correctly, i.e. define within the .py namespace
 
 Corresponding directory: $CONDA_PREFIX/lib/python3.7/site-packages/pyq`
 
