@@ -13,7 +13,7 @@ Using of quandl data &amp; LSTM Model within pyQ to generate sample predictions
 would need to be replaced by this repo's __init__.py file for the script 
 to work correctly, i.e. define within the .py namespace
 
-Corresponding directory: $CONDA_PREFIX/lib/python3.7/site-packages/pyq`
+Corresponding directory: $CONDA_PREFIX/lib/python3.7/site-packages/pyq
 
 Change the above based on python version used 
 
