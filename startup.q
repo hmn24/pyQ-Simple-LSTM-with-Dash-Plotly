@@ -2,15 +2,11 @@
 p)import pyFiles.utils
 p)import pyFiles.LSTM
 
-// Inner function to be defined for projection purposes, to be corrected for string types
-.utils.innerProjection: {x (), $[not[type y] & -10h = type first y; enlist y; y]};
-
 // Define pyq functions with a projection, so no enlist is required for monadic functions
-{a set .utils.innerProjection value a: .Q.dd[`.py;x]} each system "f .py";
+@[`.py; system "f .py"; '; (),];
 
 // Define the console size
 system "c 10 200";
-
 
 // -- Unit Test Section --
 // Define the unitTestPath for the loading of pyQ script
