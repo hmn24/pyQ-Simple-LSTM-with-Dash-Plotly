@@ -20,8 +20,6 @@ would need to be modified at the following lines under the directory $CONDA_PREF
         k = K._k
         k(0, "delete %s from `.py" % attr)
 
-Change the above based on python version used 
-
 5) Simon Garland's k4 unit test is utilised to test if python functions are working as intended
 
 6) The relevant logic can be searched within script.q to look at the various variables defined
