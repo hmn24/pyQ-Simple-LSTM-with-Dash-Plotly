@@ -135,7 +135,7 @@ DEBUG:0
 / DELIM, csv delimiter
 DELIM:","
 / Test Results SAVEFILE
-SAVEFILE: .Q.dd[.util.unitTestPath; `KUTR.csv];
+SAVEFILE: .Q.dd[@[value; `.ut.unitTestPath; `:.]; `KUTR.csv];
 
 \d .
 @[value;"\\l k4unit.custom.q";::];      

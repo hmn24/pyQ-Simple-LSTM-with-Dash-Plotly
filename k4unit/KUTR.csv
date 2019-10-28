@@ -1,6 +1,6 @@
 action,ms,bytes,lang,code,repeat,file,msx,bytesx,ok,okms,okbytes,valid,timestamp
-true,0,0,q,.z.d =.py.firstCheck[.z.d],1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-07-18 23:08:23.365
-true,0,0,q,3 = .py.secondCheck (1;2),1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-07-18 23:08:23.365
-true,0,0,q,not .py.thirdCheck[],1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-07-18 23:08:23.365
-true,0,0,q,null .py.fourthCheck[],1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-07-18 23:08:23.365
-true,0,0,q,2019.04.20 = .py.fifthCheck[enlist "." vs string 2019.04.20],1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-07-18 23:08:23.365
+true,0,0,q,.z.d =.py.firstCheck[.z.d],1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-10-28 18:41:49.482
+true,0,0,q,3 = .py.secondCheck (1;2),1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-10-28 18:41:49.483
+true,0,0,q,not .py.thirdCheck[],1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-10-28 18:41:49.483
+true,0,0,q,null .py.fourthCheck[],1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-10-28 18:41:49.483
+true,0,0,q,2019.04.20 = .py.fifthCheck[enlist "." vs string 2019.04.20],1,:./k4unit/pyQ/pyQ.csv,0,0,1,1,1,1,2019-10-28 18:41:49.483

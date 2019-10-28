@@ -23,11 +23,8 @@ def define_in_q(fn):
 # pyq_1stCheck is for one to test out differences in q/python types and/or transformation
 @define_in_q
 def firstCheck(dummy):
-    print('Python print output is:')
-    print(dummy)
-    print('Python type is:')
-    print(type(dummy))
-    print('')
+    print('Python print output is:' + str(dummy))
+    print('Python type is: ' + str(type(dummy)))
     return dummy
 
 @define_in_q

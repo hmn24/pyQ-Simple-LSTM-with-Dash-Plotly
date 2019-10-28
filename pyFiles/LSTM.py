@@ -44,7 +44,7 @@ def predictLSTMModel(inputs, lookforward=5):
     np_inputs = np.array(inputs)
     reshape_tuple = (np_inputs.shape[0], np_inputs.shape[1], 1)
     rolling_intervals = np_inputs.shape[1]
-    for i in range(lookforward):
+    for _ in range(lookforward):
         predictions = LSTMmodel.predict(np.reshape(np_inputs[-rolling_intervals:], reshape_tuple))
         np_inputs = np.append(np_inputs, predictions)
     return np_inputs[-lookforward:]
