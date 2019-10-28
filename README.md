@@ -31,4 +31,6 @@ would need to be modified at the following lines under the directory $CONDA_PREF
 ## Pending Work:
 ```
 1) Multivariate LSTM model
+
+2) Incorporating the use of dash-plotly and basic visualisation features (WIP)
 ```
