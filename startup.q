@@ -18,4 +18,3 @@ system "l core/ml.q";
 system "l core/utils.q";
 system "l LSTMTrainAndPredict.q";
 
-
