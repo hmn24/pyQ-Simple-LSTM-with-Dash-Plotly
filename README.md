@@ -27,6 +27,9 @@ would need to be modified at the following lines under the directory $CONDA_PREF
 6) The relevant logic can be searched within script.q to look at the various variables defined
 
 7) Note that there are various python functions that can be called within the q process 
+
+8) Note that the dashboard started up can be permanently SIGKILL-ed through the Quit on the resulting dashboard popup...
+One can continue to run kdb+ codes in the q console despite the dashboard (Flask) application running in the background
 ```
 
 
@@ -34,5 +37,4 @@ would need to be modified at the following lines under the directory $CONDA_PREF
 ```
 1) Multivariate LSTM model
 
-2) Incorporating the use of dash-plotly and basic visualisation features (WIP)
 ```
