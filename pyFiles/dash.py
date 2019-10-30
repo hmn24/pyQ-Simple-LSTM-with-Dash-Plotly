@@ -98,3 +98,9 @@ def populatePredTrace(dtRange, predPx):
 def populateStockSym(stockSym_):
     global stockSym
     stockSym = str(stockSym_)
+
+@utils.define_in_q
+def clearTrace():
+    global trace, predictions
+    trace = []
+    predictions = pd.DataFrame(columns=['Date', 'Nominal Price'])
