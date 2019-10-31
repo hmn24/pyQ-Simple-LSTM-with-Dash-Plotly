@@ -1,4 +1,4 @@
-# pyQ-Simple-LSTM-Model
+# pyQ-Simple-LSTM-with-Dash-Plotly
 
 Using of quandl data &amp; LSTM Model within pyQ to generate sample predictions, with k4unit tests to check python functions are working as intended
 
