@@ -4,7 +4,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output, State
 from multiprocessing import Process
-import os, signal 
+import os, signal, sys
 import pyFiles.utils as utils
 from pyq import q
 import pandas as pd
@@ -52,13 +52,20 @@ def update_graph(predDays):
 
 # For purposes of killing the dashboard process since it would be stuck, so the q can be returned to normalcy
 @app.callback(Output('dummyQuit', 'children'), [Input('quitButton', 'n_clicks')], [State('dummyQuit', 'children')])
-def shutdown(n_clicks, dummyQuit):
+def shutdownFromDash(n_clicks, dummyQuit):
     global server
     if n_clicks:
         print('\nExiting Dashboards ......\n')
         os.kill(server.pid, signal.SIGKILL)
     return ''
 
+# .py.quitDash() to exit dashboard visualisations in q session
+@utils.define_in_q
+def quitDash():
+    global server
+    print('\nExiting Dashboards ......\n')
+    os.kill(server.pid, signal.SIGKILL)
+    
 # .py.runDash() to trigger dashboard visualisations via dash-plotly
 @utils.define_in_q
 def runDash(): 
@@ -98,9 +105,3 @@ def populatePredTrace(dtRange, predPx):
 def populateStockSym(stockSym_):
     global stockSym
     stockSym = str(stockSym_)
-
-@utils.define_in_q
-def clearTrace():
-    global trace, predictions
-    trace = []
-    predictions = pd.DataFrame(columns=['Date', 'Nominal Price'])
