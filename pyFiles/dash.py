@@ -4,7 +4,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output, State
 from multiprocessing import Process
-import os, signal, sys
+import os, signal
 import pyFiles.utils as utils
 from pyq import q
 import pandas as pd
