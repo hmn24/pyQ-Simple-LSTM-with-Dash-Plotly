@@ -18,7 +18,7 @@ would need to be modified at the following lines under the directory $CONDA_PREF
 
     def __delattr__(self, attr):
         k = K._k
-        k(0, "delete %s from `.py" % attr)
+        k(0, f"delete {attr} from `.py")
 
 5) k4 unit test is utilised to test if python functions are working as intended
 
