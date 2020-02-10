@@ -76,7 +76,7 @@ def runDash():
 # .py.populateBaseTrace() to populate the trace with Original and Validation Values
 @utils.define_in_q
 def populateBaseTrace(dtRange, nomPx, validPx):
-    global trace, graphPlot
+    global trace
     trace = []
     origVal = go.Scatter(x=dtRange, y=nomPx, mode='lines', name='Original')
     trace.append(origVal)
